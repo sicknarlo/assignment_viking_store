@@ -30,7 +30,6 @@ Business.credit_card_expiry_date
 
 require 'faker'
 
-
 def strip_phone_number(number)
   n = number.split("x")[0].gsub("-", "").gsub(" ", "").gsub("(", "").gsub(")", "").gsub(".", "")
 end
@@ -54,7 +53,7 @@ end
 # Generate orders
 5000.times do
   u = User.all.sample
-  Order.create(user_id: u.id, address_id: u.primary_address_id, payment_id: rand(1..5000)
+  Order.create(user_id: u.id, address_id: u.primary_address_id, payment_id: rand(1..5000))
 end
 
 # Generate payments
@@ -81,4 +80,3 @@ end
     UserAddress.create(user_id: user.id, address_id: Address.all.sample)
   end
 end
-
