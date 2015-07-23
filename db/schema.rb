@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150723220331) do
+ActiveRecord::Schema.define(version: 20150723230659) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street_num_name", null: false
@@ -27,9 +27,10 @@ ActiveRecord::Schema.define(version: 20150723220331) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "address_id"
-    t.integer "payment_id"
+    t.integer  "user_id"
+    t.integer  "address_id"
+    t.integer  "payment_id"
+    t.datetime "order_date"
   end
 
   create_table "payments", force: :cascade do |t|
@@ -37,7 +38,7 @@ ActiveRecord::Schema.define(version: 20150723220331) do
     t.string  "name_on_cc"
     t.string  "exp_date"
     t.integer "user_id"
-    t.integer "billing_addrordeess"
+    t.integer "billing_address_id"
   end
 
   create_table "products", force: :cascade do |t|
